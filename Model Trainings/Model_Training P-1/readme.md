@@ -1,9 +1,9 @@
 # Tropical Cyclone Trajectory Prediction for the Bangladesh Coastline
 
 ## Project Overview
-This project develops and validates high-precision deep learning models to predict tropical cyclone trajectories in the Bay of Bengal, specifically targeting the Bangladesh coastline. Unlike global models, this research addresses the unique geographical and meteorological challenges of the region, including the complex delta system and characteristic recurvature patterns.
+This project develops and validates high-precision deep learning models to predict tropical cyclone trajectories in the Bay of Bengal, specifically targeting the Bangladesh coastline. Unlike global models, this addresses the unique geographical and meteorological challenges of the region, including the complex delta system and characteristic recurvature patterns.
 
-Using **Cyclone Mocha (2023)** as a primary case study, we demonstrate that **hybrid spatiotemporal models** significantly outperform traditional baseline architectures in predicting cyclone landfall accurately.
+Using **Cyclone Mocha (2023)** as a primary case study, I demonstrate that **hybrid spatiotemporal models** significantly outperform traditional baseline architectures in predicting cyclone landfall accurately.
 
 ---
 
@@ -12,7 +12,7 @@ This work is inspired by and builds upon research conducted for the Indian coast
 
 - **Research Paper:** [Automatic Cyclone Tracking System (Paper Description)](https://github.com/MSR2201/Automatic-Cyclone-Track-Prediction/blob/main/Automatic%20Cyclone%20Tracking%20System.pdf)
 - **Original Implementation:** [MSR2201/Automatic-Cyclone-Track-Prediction](https://github.com/MSR2201/Automatic-Cyclone-Track-Prediction/blob/main/Automatic_cyclone_tracking_system.ipynb)
-- **Key Contribution:** While the reference work focuses on the Indian coast (e.g., Cyclone Michaung), this repository specializes the framework for the northernmost Bay of Bengal (Bangladesh), optimizing for sharp northeastward turns.
+- **Key Contribution:** While the reference work focuses on the Indian coast (Cyclone Michaung), this repository specializes the framework for the northernmost Bay of Bengal (Bangladesh), optimizing for sharp northeastward turns.
 
 ---
 
