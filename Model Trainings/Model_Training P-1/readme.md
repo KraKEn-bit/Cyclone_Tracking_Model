@@ -56,8 +56,47 @@ Validation used **Cartopy** with high-resolution (10m) land features for precise
 
 ##  Challenges & Limitations
 - **Regional Data Density:** Bay of Bengal has fewer historical data points than the Pacific, affecting model generalization.  
-- **Feature Constraints:** Currently, models rely on Lat/Lon coordinates. Future work should include **Sea Surface Temperature (SST)** and **Wind Shear** for better intensity-movement coupling.  
+- **Feature Constraints:** Currently, models rely on Lat/Lon coordinates. Future work should include **Sea Surface Temperature (SST)** and **Wind Shear** for better intensity-movement coupling.
+- 
+
+
+
+
+## 🚀 How to Run (Inference)
+
+To use the pre-trained models for predicting new cyclone coordinates, follow these steps:
+
+### 1. Prerequisites
+Ensure you have the following libraries installed:
+```bash
+pip install tensorflow pandas numpy matplotlib cartopy
 - **Timing of Turns:** Predicting the exact hour of recurvature remains challenging, even for hybrid architectures.  
+```
+
+### **Load a Pre trained Model:**
+
+import tensorflow as tf
+from tensorflow.keras.models import load_model
+
+# Load the best performing model
+model = load_model('models/CNN_GRU.h5')
+
+# View model architecture
+model.summary()
 
 ---
+
+### Run a Prediction:
+
+import numpy as np
+
+# Example: Last 3 timesteps of a storm
+sample_input = np.array([[15.2, 88.5], [15.8, 89.1], [16.5, 89.8]])
+sample_input = np.expand_dims(sample_input, axis=0)  # Reshape for the model
+
+# Predict next coordinate
+prediction = model.predict(sample_input)
+print(f"Predicted Next Coordinate: {prediction}")
+
+
 
