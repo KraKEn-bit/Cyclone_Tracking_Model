@@ -1,31 +1,63 @@
-## 📊 Comparative Performance Metrics
+# Tropical Cyclone Trajectory Prediction for the Bangladesh Coastline
 
-The following table summarizes the performance of each model architecture. The **Average Displacement Error (ADE)** and **Final Displacement Error (FDE)** were calculated based on the 24-hour lead-time predictions for Cyclone Mocha (2023).
+## Project Overview
+This project develops and validates high-precision deep learning models to predict tropical cyclone trajectories in the Bay of Bengal, specifically targeting the Bangladesh coastline. Unlike global models, this research addresses the unique geographical and meteorological challenges of the region, including the complex delta system and characteristic recurvature patterns.
 
-| Model Architecture | Spatial Awareness | Temporal Memory | Track Consistency | Relative Accuracy |
-| :--- | :---: | :---: | :---: | :---: |
-| **MLP (Baseline)** | ❌ None | ❌ Low | 🔴 Jittery / Linear | Lowest |
-| **LSTM (Baseline)** | ❌ None | ✅ High | 🟠 Lagging / Smooth | Moderate |
-| **CNN-LSTM** | ✅ High | ✅ High | 🔵 Accurate / Stable | High |
-| **CNN-GRU (Proposed)** | ✅ High | ✅ Efficient | 🟢 Most Precise | **Highest** |
-
-
-
-### 🔍 Technical Analysis of Results
-
-1. **The Baseline Gap:** Simple models like **MLP** and **LSTM** lack "Spatial Context." While they can remember previous coordinates, they do not understand the geographical constraints of the Bay of Bengal. This results in the "Drift Error" seen in the baseline plots.
-
-2. **The Hybrid Advantage:** The **CNN-LSTM** and **CNN-GRU** models utilize Convolutional layers to process the surrounding coordinate grid as a spatial feature map. This allows the models to "anticipate" turns in the trajectory based on spatial patterns in the historical data.
-
-3. **Why CNN-GRU Won:** In our experiments on the Bangladesh regional dataset, the **CNN-GRU** outperformed the CNN-LSTM. This is attributed to the GRU's streamlined architecture (Reset and Update gates), which prevents the vanishing gradient problem more effectively than LSTM when working with the specific sample sizes available in the North Indian Ocean IBTrACS subset.
-
-4. **Landfall Precision:** The **FDE (Final Displacement Error)**—which measures the distance between the predicted and actual landfall points—was lowest in the CNN-GRU model. This is the most critical metric for disaster management and evacuation planning in Cox's Bazar and coastal regions.
-
-
+Using **Cyclone Mocha (2023)** as a primary case study, we demonstrate that **hybrid spatiotemporal models** significantly outperform traditional baseline architectures in predicting cyclone landfall accurately.
 
 ---
 
-## 📈 Summary of Achievements
-* **Regional Specialization:** Successfully pivoted the Indian "Michaung" methodology to create a Bangladesh-centric "Mocha" validation set.
-* **Architecture Optimization:** Identified CNN-GRU as the most resource-efficient and accurate model for the Bay of Bengal.
-* **Geospatial Validation:** Integrated high-resolution Cartopy mapping to prove that AI-driven tracks align with real-world geographical landmarks.
+##  Acknowledgments & References
+This work is inspired by and builds upon research conducted for the Indian coastline:
+
+- **Research Paper:** [Automatic Cyclone Tracking System (PDF)](link-to-paper)
+- **Original Implementation:** [MSR2201/Automatic-Cyclone-Track-Prediction](link-to-repo)
+- **Key Contribution:** While the reference work focuses on the Indian coast (e.g., Cyclone Michaung), this repository specializes the framework for the northernmost Bay of Bengal (Bangladesh), optimizing for sharp northeastward turns.
+
+---
+
+##  Methodology
+We implemented four neural network architectures to compare their efficacy in predicting cyclone trajectories:
+
+| Model | Description |
+|-------|-------------|
+| **MLP (Multi-Layer Perceptron)** | Basic feed-forward baseline. |
+| **LSTM (Long Short-Term Memory)** | Temporal model capturing sequential dependencies. |
+| **CNN-LSTM (Hybrid)** | Convolutional layers for spatial features + LSTM for time-series forecasting. |
+| **CNN-GRU (Proposed Best)** | Gated Recurrent Units for improved efficiency and reduced overfitting on regional data. |
+
+---
+
+##  Performance Metrics
+Models were evaluated using **Cyclone Mocha (2023)**. Accuracy measured how closely predicted paths aligned with **IBTrACS data**.
+
+| Architecture | Spatial Awareness | Temporal Memory | Track Stability | Error Level |
+|--------------|-----------------|----------------|----------------|-------------|
+| **MLP** | ❌ None | ❌ Low | 🔴 High Deviation | High |
+| **LSTM** | ❌ None | ✅ High | 🟠 Sequential Lag | Moderate |
+| **CNN-LSTM** | ✅ High | ✅ High | 🔵 Accurate Curve | Low |
+| **CNN-GRU** | ✅ High | ✅ Optimized | 🟢 Most Precise | Lowest |
+
+**Key Observations:**
+
+- **Recurvature Problem:** Baseline models (MLP/LSTM) often drift straight, failing to capture sharp turns toward Cox's Bazar.  
+- **Hybrid Advantage:** CNN layers identify spatial environmental features, enabling CNN-GRU to follow the actual storm bend.  
+- **Landfall Accuracy:** CNN-GRU has the lowest Final Displacement Error (FDE), making it most suitable for real-world evacuation planning.  
+
+---
+
+##  Geospatial Validation
+Validation used **Cartopy** with high-resolution (10m) land features for precise visualization.
+
+- **Actual Track:** Red (IBTrACS Data)  
+- **Predicted Tracks:** Blue / Orange / Magenta (Model Outputs)  
+
+---
+
+##  Challenges & Limitations
+- **Regional Data Density:** Bay of Bengal has fewer historical data points than the Pacific, affecting model generalization.  
+- **Feature Constraints:** Currently, models rely on Lat/Lon coordinates. Future work should include **Sea Surface Temperature (SST)** and **Wind Shear** for better intensity-movement coupling.  
+- **Timing of Turns:** Predicting the exact hour of recurvature remains challenging, even for hybrid architectures.  
+
+---
+
