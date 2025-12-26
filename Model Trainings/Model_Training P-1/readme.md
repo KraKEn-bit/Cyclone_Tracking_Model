@@ -62,7 +62,7 @@ Validation used **Cartopy** with high-resolution (10m) land features for precise
 
 
 
-## 🚀 How to Run (Inference)
+## How to Run (Inference)
 
 To use the pre-trained models for predicting new cyclone coordinates, follow these steps:
 
