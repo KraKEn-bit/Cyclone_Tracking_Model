@@ -75,28 +75,28 @@ pip install tensorflow pandas numpy matplotlib cartopy
 
 ### **Load a Pre trained Model:**
 
-import tensorflow as tf
-from tensorflow.keras.models import load_model
+import tensorflow as tf<br>
+from tensorflow.keras.models import load_model<br>
 
-# Load the best performing model
-model = load_model('models/CNN_GRU.h5')
+#### Load the best performing model<br>
+model = load_model('models/CNN_GRU.h5')<br>
 
-# View model architecture
-model.summary()
+#### View model architecture<br>
+model.summary()<br>
 
 ---
 
 ### Run a Prediction:
 
-import numpy as np
+import numpy as np<br>
 
-# Example: Last 3 timesteps of a storm
-sample_input = np.array([[15.2, 88.5], [15.8, 89.1], [16.5, 89.8]])
-sample_input = np.expand_dims(sample_input, axis=0)  # Reshape for the model
+#### Example: Last 3 timesteps of a storm<br>
+sample_input = np.array([[15.2, 88.5], [15.8, 89.1], [16.5, 89.8]])<br>
+sample_input = np.expand_dims(sample_input, axis=0)  # Reshape for the model<br>
 
-# Predict next coordinate
-prediction = model.predict(sample_input)
-print(f"Predicted Next Coordinate: {prediction}")
+#### Predict next coordinate<br>
+prediction = model.predict(sample_input)<br>
+print(f"Predicted Next Coordinate: {prediction}")<br>
 
 
 
