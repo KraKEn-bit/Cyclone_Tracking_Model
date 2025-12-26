@@ -10,8 +10,8 @@ Using **Cyclone Mocha (2023)** as a primary case study, we demonstrate that **hy
 ##  Acknowledgments & References
 This work is inspired by and builds upon research conducted for the Indian coastline:
 
-- **Research Paper:** [Automatic Cyclone Tracking System (Paper Description)]([link-to-paper](https://github.com/MSR2201/Automatic-Cyclone-Track-Prediction/blob/main/Automatic%20Cyclone%20Tracking%20System.pdf))
-- **Original Implementation:** [MSR2201/Automatic-Cyclone-Track-Prediction]([link-to-repo](https://github.com/MSR2201/Automatic-Cyclone-Track-Prediction/blob/main/Automatic_cyclone_tracking_system.ipynb))
+- **Research Paper:** [Automatic Cyclone Tracking System (Paper Description)](https://github.com/MSR2201/Automatic-Cyclone-Track-Prediction/blob/main/Automatic%20Cyclone%20Tracking%20System.pdf)
+- **Original Implementation:** [MSR2201/Automatic-Cyclone-Track-Prediction](https://github.com/MSR2201/Automatic-Cyclone-Track-Prediction/blob/main/Automatic_cyclone_tracking_system.ipynb)
 - **Key Contribution:** While the reference work focuses on the Indian coast (e.g., Cyclone Michaung), this repository specializes the framework for the northernmost Bay of Bengal (Bangladesh), optimizing for sharp northeastward turns.
 
 ---
