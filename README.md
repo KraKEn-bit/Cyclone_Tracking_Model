@@ -53,7 +53,3 @@ The feature space is validated via t-SNE, confirming it encodes physically meani
 | **Physics** | 7 | Curvature, bearing/speed stability, recurvature proxy, seasonal encoding |
 | **Environment** | 8 | Distance to land, landfall flag, wind estimate, BoB centroid distance |
 | **Missingness** | 9 | Binary flags for imputed lag values and wind observations |
-
-**Download Data:**
-```bash
-wget [https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r01/access/csv/ibtracs.NI.list.v04r01.csv](https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r01/access/csv/ibtracs.NI.list.v04r01.csv)
